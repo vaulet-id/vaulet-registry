@@ -47,11 +47,6 @@
       "name": "picture",
       "kind": "image",
       "meaning": "A picture of the person."
-    },
-    {
-      "name": "nationality",
-      "kind": "text",
-      "meaning": "Nationality as ISO 3166-1 alpha-3."
     }
   ],
   "aliases": [
@@ -74,6 +69,11 @@
       "from": "sex",
       "to": "org.iso.18013.5.1:sex",
       "why": "The MRZ field, not the stated gender \u2014 it belongs to the document vocabulary."
+    },
+    {
+      "from": "nationality",
+      "to": "eu.europa.ec.eudi.pid.1:nationality",
+      "$comment": "It was listed as universal under a citation to OpenID Connect Core, which does not define it. It is the PID's and the mDL's word."
     }
   ]
 }

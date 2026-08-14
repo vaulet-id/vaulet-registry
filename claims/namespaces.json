@@ -478,28 +478,28 @@
       "kind": "definition",
       "layer": "vaulet",
       "authoritative": true,
-      "meaning": "Facts a clinician or an insurer needs, not a medical record.",
-      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "meaning": "Facts a clinician or a doorman needs in a hurry. Not a medical record, and not insurance: cover is the EHIC's subject and this waits for it.",
+      "$comment": "HL7 FHIR is the standard here and cannot be pointed at: it is resources and element paths (Patient.birthDate, AllergyIntolerance.code), not a namespace of claim names. SMART Health Cards does carry FHIR in a credential, but as one whole Bundle in a single JWS claim \u2014 all of it discloses or none of it does, which is the opposite of what SD-JWT is for. So the names are ours and the codes are theirs.",
       "claims": [
-        {
-          "name": "insurer_name",
-          "kind": "text",
-          "meaning": "Who covers them."
-        },
-        {
-          "name": "policy_number",
-          "kind": "text",
-          "meaning": "What the insurer knows the cover by."
-        },
         {
           "name": "blood_type",
           "kind": "text",
-          "meaning": "ABO and Rh, e.g. O+."
+          "meaning": "ABO and Rh as HL7 v2 table 0316 spells it, e.g. O+."
         },
         {
           "name": "allergy",
           "kind": "text",
-          "meaning": "One allergy. A credential carrying several repeats the claim."
+          "meaning": "One allergy, in words a person reads. A credential carrying several repeats the claim."
+        },
+        {
+          "name": "allergy_code",
+          "kind": "text",
+          "meaning": "The same allergy as a code, so a system reads what the words only suggest. SNOMED CT unless allergy_code_system says otherwise."
+        },
+        {
+          "name": "allergy_code_system",
+          "kind": "text",
+          "meaning": "The URI of the code system allergy_code is from. Absent means SNOMED CT. A code without its system is a number nobody can look up."
         },
         {
           "name": "emergency_contact_name",
@@ -567,6 +567,16 @@
           "meaning": "What they call it."
         }
       ]
+    },
+    {
+      "namespace": "eu.europa.ec.eudi.ehic.1",
+      "kind": "pointer",
+      "layer": "standard",
+      "authoritative": false,
+      "defined_by": "EU Digital Identity Wallet ARF \u2014 European Health Insurance Card rulebook",
+      "source": "https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework",
+      "$comment": "Listed with no words because the rulebook is not final. It is here so an issuer writing health insurance today writes it in their own namespace knowingly, rather than discovering later that the word existed.",
+      "claims": []
     }
   ]
 }
