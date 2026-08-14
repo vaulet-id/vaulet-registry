@@ -1,0 +1,26 @@
+{
+  "$comment": "Namespaces whose words are reserved. Two kinds of entry, and the difference is who may change them. A pointer names a vocabulary somebody else publishes and does NOT copy its words: a copy is a copy that goes stale without anybody noticing. A definition is a vocabulary nobody else has written down, and only then do we write name, kind and meaning ourselves.",
+  "namespaces": [
+    {
+      "namespace": "org.iso.18013.5.1",
+      "kind": "pointer",
+      "defined_by": "ISO/IEC 18013-5:2021 — mobile driving licence",
+      "note": "Country and issuer extensions append a code, e.g. org.iso.18013.5.1.US. Includes family_name, given_name, birth_date, document_number, issuing_country, portrait, sex."
+    },
+    {
+      "namespace": "eu.europa.ec.eudi.pid.1",
+      "kind": "pointer",
+      "defined_by": "EU Digital Identity Wallet Architecture and Reference Framework — person identification data"
+    },
+    {
+      "namespace": "loyalty",
+      "kind": "definition",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases.",
+      "claims": [
+        { "name": "tier",         "kind": "text",   "meaning": "The membership level." },
+        { "name": "points",       "kind": "number", "meaning": "The balance of points held." },
+        { "name": "member_since", "kind": "date",   "meaning": "When the membership began." }
+      ]
+    }
+  ]
+}

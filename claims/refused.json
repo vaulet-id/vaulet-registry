@@ -1,0 +1,11 @@
+{
+  "$comment": "Identifier prefixes nobody may be allocated. A reserved namespace and a private one are the same shape — org.iso.18013.5.1 and th.co.codefin are both reverse-DNS — so nothing about the string stops somebody taking org.iso.18013.5.2 and looking official. This list does, at the moment an identifier is handed out, rather than after an argument.",
+  "prefixes": [
+    "org.iso.",
+    "eu.europa.ec.",
+    "org.w3.",
+    "org.openid.",
+    "id.vaulet.",
+    "vaulet."
+  ]
+}

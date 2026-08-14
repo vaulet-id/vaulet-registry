@@ -1,0 +1,16 @@
+[package]
+name = "vaulet_registry"
+version = "0.1.0"
+edition = "2021"
+description = "The reserved claim vocabulary — the words a credential may use bare, the namespaces somebody else defines, and the identifier prefixes nobody may be allocated"
+license = "Apache-2.0"
+repository = "https://github.com/vaulet-id/vaulet-registry"
+readme = "README.md"
+
+# Embedded at compile time, for the same reason vaulet-data is: a deployment
+# cannot enforce a vocabulary that is not in a repository, and there is nothing
+# to go missing on a machine. Consumers pin it by revision.
+[dependencies]
+
+[dev-dependencies]
+serde_json = "1"

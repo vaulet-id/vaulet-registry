@@ -1,0 +1,78 @@
+{
+  "$comment": "Words that mean the same thing in every industry. Spellings follow OpenID Connect Core 5.1 wherever it has the claim: inventing a second name for birthdate is how two issuers end up unreadable to each other while both being right. Aliases record a spelling that already exists in the wild and what it means, because credentials already issued carry the old key and no later decision can change that.",
+  "source": "https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims",
+  "claims": [
+    {
+      "name": "given_name",
+      "kind": "text",
+      "meaning": "The person's first name."
+    },
+    {
+      "name": "family_name",
+      "kind": "text",
+      "meaning": "The person's surname."
+    },
+    {
+      "name": "name",
+      "kind": "text",
+      "meaning": "The full name, as the person writes it."
+    },
+    {
+      "name": "birthdate",
+      "kind": "date",
+      "meaning": "The day the person was born."
+    },
+    {
+      "name": "email",
+      "kind": "text",
+      "meaning": "A mailbox the person can be reached at."
+    },
+    {
+      "name": "phone_number",
+      "kind": "text",
+      "meaning": "A telephone number in E.164 form."
+    },
+    {
+      "name": "address",
+      "kind": "address",
+      "meaning": "A postal address, in parts."
+    },
+    {
+      "name": "gender",
+      "kind": "text",
+      "meaning": "Gender as the person states it."
+    },
+    {
+      "name": "picture",
+      "kind": "image",
+      "meaning": "A picture of the person."
+    },
+    {
+      "name": "nationality",
+      "kind": "text",
+      "meaning": "Nationality as ISO 3166-1 alpha-3."
+    }
+  ],
+  "aliases": [
+    {
+      "from": "phone",
+      "to": "phone_number",
+      "why": "Vaulet's original spelling; OIDC Core says phone_number."
+    },
+    {
+      "from": "date_of_birth",
+      "to": "birthdate",
+      "why": "Vaulet's original spelling; OIDC Core says birthdate."
+    },
+    {
+      "from": "full_name",
+      "to": "name",
+      "why": "Vaulet's original spelling; OIDC Core's name is the full name."
+    },
+    {
+      "from": "sex",
+      "to": "org.iso.18013.5.1:sex",
+      "why": "The MRZ field, not the stated gender \u2014 it belongs to the document vocabulary."
+    }
+  ]
+}
