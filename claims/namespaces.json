@@ -569,14 +569,211 @@
       ]
     },
     {
-      "namespace": "eu.europa.ec.eudi.ehic.1",
-      "kind": "pointer",
-      "layer": "standard",
-      "authoritative": false,
-      "defined_by": "EU Digital Identity Wallet ARF \u2014 European Health Insurance Card rulebook",
-      "source": "https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework",
-      "$comment": "Listed with no words because the rulebook is not final. It is here so an issuer writing health insurance today writes it in their own namespace knowingly, rather than discovering later that the word existed.",
-      "claims": []
+      "namespace": "licence",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "A permission to practise, granted by a body that can withdraw it.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "authority",
+          "kind": "text",
+          "meaning": "Who granted it and can withdraw it."
+        },
+        {
+          "name": "licence_number",
+          "kind": "text",
+          "meaning": "What the authority knows it by."
+        },
+        {
+          "name": "scope",
+          "kind": "text",
+          "meaning": "What it permits."
+        },
+        {
+          "name": "granted_on",
+          "kind": "date",
+          "meaning": "When it was granted."
+        },
+        {
+          "name": "restrictions",
+          "kind": "text",
+          "meaning": "What it does not permit, where that is not simply the absence of scope."
+        }
+      ]
+    },
+    {
+      "namespace": "insurance",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "Cover that is not health cover, which is the EHIC's subject.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "insurer_name",
+          "kind": "text",
+          "meaning": "Who carries the risk."
+        },
+        {
+          "name": "policy_number",
+          "kind": "text",
+          "meaning": "What the insurer knows the policy by."
+        },
+        {
+          "name": "cover",
+          "kind": "text",
+          "meaning": "What is insured against."
+        },
+        {
+          "name": "sum_insured",
+          "kind": "number",
+          "meaning": "The most it pays."
+        },
+        {
+          "name": "excess",
+          "kind": "number",
+          "meaning": "What the holder pays before it does."
+        }
+      ]
+    },
+    {
+      "namespace": "finance",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "An account, said in the least that proves it exists.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "institution_name",
+          "kind": "text",
+          "meaning": "Which bank or provider."
+        },
+        {
+          "name": "account_name",
+          "kind": "text",
+          "meaning": "The name the account is in."
+        },
+        {
+          "name": "account_number_last4",
+          "kind": "text",
+          "meaning": "The last four digits, and never more: a whole account number is a payment instrument, not a fact about somebody."
+        },
+        {
+          "name": "account_type",
+          "kind": "text",
+          "meaning": "Current, savings, e-money."
+        },
+        {
+          "name": "kyc_level",
+          "kind": "text",
+          "meaning": "How far the institution checked, in its own scale."
+        }
+      ]
+    },
+    {
+      "namespace": "tenancy",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "Somebody's right to live at an address.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "landlord_name",
+          "kind": "text",
+          "meaning": "Who lets it."
+        },
+        {
+          "name": "property_address",
+          "kind": "text",
+          "meaning": "Which property."
+        },
+        {
+          "name": "tenancy_from",
+          "kind": "date",
+          "meaning": "When the tenancy began."
+        },
+        {
+          "name": "tenancy_to",
+          "kind": "date",
+          "meaning": "When it ends."
+        }
+      ]
+    },
+    {
+      "namespace": "utility",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "A service account at an address, which is what proves the address.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "provider_name",
+          "kind": "text",
+          "meaning": "Who supplies it."
+        },
+        {
+          "name": "account_number",
+          "kind": "text",
+          "meaning": "What the provider knows it by."
+        },
+        {
+          "name": "service_address",
+          "kind": "text",
+          "meaning": "Where it is supplied."
+        },
+        {
+          "name": "service_type",
+          "kind": "text",
+          "meaning": "Electricity, water, internet."
+        }
+      ]
+    },
+    {
+      "namespace": "pet",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "An animal somebody is responsible for.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "species",
+          "kind": "text",
+          "meaning": "Dog, cat."
+        },
+        {
+          "name": "breed",
+          "kind": "text",
+          "meaning": "The breed, where there is one."
+        },
+        {
+          "name": "microchip_number",
+          "kind": "text",
+          "meaning": "The ISO 11784 transponder code, which is how it is found again."
+        },
+        {
+          "name": "pet_name",
+          "kind": "text",
+          "meaning": "What it is called. Not `name`, which is the holder's."
+        },
+        {
+          "name": "neutered",
+          "kind": "boolean",
+          "meaning": "Whether it has been neutered."
+        }
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "expected": "European Health Insurance Card, as an EUDI attestation",
+      "$comment": "No namespace identifier is recorded because none is published: annex 3 of the ARF carries rulebooks for PID and the mDL, and the mDL's namespace is ISO's, not the EU's. Writing eu.europa.ec.eudi.ehic.1 here would be inventing a standard's name, which is the one thing this file exists to stop. Listed so a console can warn that cover is likely to get a reserved word later, and so nobody adds one from memory.",
+      "watch": "https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/tree/main/docs/annexes/annex-3"
     }
   ]
 }

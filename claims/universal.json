@@ -1,5 +1,5 @@
 {
-  "$comment": "Layer 1 of four (ADR 0046): what OpenID Connect Core and SD-JWT VC already spell. Not our vocabulary \u2014 a citation and the kinds this software needs to check a value against. Inventing a second name for birthdate is how two issuers end up unreadable to each other while both being right.",
+  "$comment": "Layer 1 of four (ADR 0046): what OpenID Connect Core and SD-JWT VC already spell. Not our vocabulary \u2014 a citation and the kinds this software needs to check a value against. Inventing a second name for birthdate is how two issuers end up unreadable to each other while both being right. The address members are the ones OIDC defines inside its address object, written as paths because a credential holds them apart (ADR 0031).",
   "layer": "oidc",
   "source": "https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims",
   "claims": [
@@ -47,6 +47,92 @@
       "name": "picture",
       "kind": "image",
       "meaning": "A picture of the person."
+    },
+    {
+      "name": "middle_name",
+      "kind": "text",
+      "meaning": "Middle names, all of them, in one string."
+    },
+    {
+      "name": "nickname",
+      "kind": "text",
+      "meaning": "What they are called that is not their name."
+    },
+    {
+      "name": "preferred_username",
+      "kind": "text",
+      "meaning": "What they chose to be shown as. Not unique and not an identifier."
+    },
+    {
+      "name": "profile",
+      "kind": "text",
+      "meaning": "URL of a profile page."
+    },
+    {
+      "name": "website",
+      "kind": "text",
+      "meaning": "URL of a site of theirs."
+    },
+    {
+      "name": "zoneinfo",
+      "kind": "text",
+      "meaning": "IANA time zone, e.g. Asia/Bangkok."
+    },
+    {
+      "name": "locale",
+      "kind": "text",
+      "meaning": "BCP47 language tag, e.g. th-TH."
+    },
+    {
+      "name": "updated_at",
+      "kind": "number",
+      "meaning": "Seconds since the epoch, when this information last changed."
+    },
+    {
+      "name": "email_verified",
+      "kind": "boolean",
+      "meaning": "Whether the issuer checked the address, not whether it works."
+    },
+    {
+      "name": "phone_number_verified",
+      "kind": "boolean",
+      "meaning": "Whether the issuer checked the number."
+    },
+    {
+      "name": "address.formatted",
+      "kind": "text",
+      "meaning": "The whole address as it would be written on an envelope, newlines and all.",
+      "of": "address"
+    },
+    {
+      "name": "address.street_address",
+      "kind": "text",
+      "meaning": "House number, street, unit \u2014 the part before the town.",
+      "of": "address"
+    },
+    {
+      "name": "address.locality",
+      "kind": "text",
+      "meaning": "City or town.",
+      "of": "address"
+    },
+    {
+      "name": "address.region",
+      "kind": "text",
+      "meaning": "State, province or changwat.",
+      "of": "address"
+    },
+    {
+      "name": "address.postal_code",
+      "kind": "text",
+      "meaning": "Postal code.",
+      "of": "address"
+    },
+    {
+      "name": "address.country",
+      "kind": "text",
+      "meaning": "Country name or code.",
+      "of": "address"
     }
   ],
   "aliases": [

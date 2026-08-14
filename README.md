@@ -40,6 +40,12 @@ Where a copy and the standard disagree, the standard wins, which is why a
 namespace recorded as a pointer accepts a word this file does not list: a copy
 running behind is far likelier than an issuer being wrong.
 
+**Some names are refused outright.** `iss`, `exp`, `cnf`, `vct` and the rest of
+the registered JWT and SD-JWT VC fields belong to the signature, not to what is
+being said — an attribute called `exp` is written beside the expiry a verifier
+reads. Prefixes that would read as somebody else's vocabulary are refused as
+identifiers for the same reason.
+
 **Which layer answered is worth knowing.** A verifier can implement layer 1 and
 2 once and read every issuer in the world; layer 3 works everywhere this
 software runs; layer 4 means something only if you know who issued the card.

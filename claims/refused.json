@@ -1,5 +1,5 @@
 {
-  "$comment": "Identifier prefixes nobody may be allocated. A reserved namespace and a private one are the same shape — org.iso.18013.5.1 and th.co.codefin are both reverse-DNS — so nothing about the string stops somebody taking org.iso.18013.5.2 and looking official. This list does, at the moment an identifier is handed out, rather than after an argument.",
+  "$comment": "Identifier prefixes nobody may be allocated. A reserved namespace and a private one are the same shape \u2014 org.iso.18013.5.1 and th.co.codefin are both reverse-DNS \u2014 so nothing about the string stops somebody taking org.iso.18013.5.2 and looking official. This list does, at the moment an identifier is handed out, rather than after an argument.",
   "prefixes": [
     "org.iso.",
     "eu.europa.ec.",
@@ -7,5 +7,21 @@
     "org.openid.",
     "id.vaulet.",
     "vaulet."
+  ],
+  "$comment_names": "Registered JWT and SD-JWT VC claim names. A credential attribute may not be called one of these: it would sit beside the signature's own fields, indistinguishable to a reader, or overwrite one of them on the way out.",
+  "names": [
+    "iss",
+    "sub",
+    "aud",
+    "exp",
+    "nbf",
+    "iat",
+    "jti",
+    "cnf",
+    "vct",
+    "status",
+    "_sd",
+    "_sd_alg",
+    "..."
   ]
 }
