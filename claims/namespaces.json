@@ -1,26 +1,41 @@
 {
-  "$comment": "Namespaces whose words are reserved. Two kinds of entry, and the difference is who may change them. A pointer names a vocabulary somebody else publishes and does NOT copy its words: a copy is a copy that goes stale without anybody noticing. A definition is a vocabulary nobody else has written down, and only then do we write name, kind and meaning ourselves.",
+  "$comment": "Layers 2 and 3 of four (ADR 0046). A `standard` namespace is somebody else's vocabulary and is recorded as a pointer, never copied: a copy goes stale without anybody noticing. A `vaulet` namespace is one nobody else has written down, and only there do we write name, kind and meaning ourselves. Layer 4 is an organisation's own namespace and is not listed here at all.",
   "namespaces": [
     {
       "namespace": "org.iso.18013.5.1",
       "kind": "pointer",
-      "defined_by": "ISO/IEC 18013-5:2021 — mobile driving licence",
-      "note": "Country and issuer extensions append a code, e.g. org.iso.18013.5.1.US. Includes family_name, given_name, birth_date, document_number, issuing_country, portrait, sex."
+      "defined_by": "ISO/IEC 18013-5:2021 \u2014 mobile driving licence",
+      "note": "Country and issuer extensions append a code, e.g. org.iso.18013.5.1.US. Includes family_name, given_name, birth_date, document_number, issuing_country, portrait, sex.",
+      "layer": "standard"
     },
     {
       "namespace": "eu.europa.ec.eudi.pid.1",
       "kind": "pointer",
-      "defined_by": "EU Digital Identity Wallet Architecture and Reference Framework — person identification data"
+      "defined_by": "EU Digital Identity Wallet Architecture and Reference Framework \u2014 person identification data",
+      "layer": "standard"
     },
     {
       "namespace": "loyalty",
       "kind": "definition",
       "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases.",
       "claims": [
-        { "name": "tier",         "kind": "text",   "meaning": "The membership level." },
-        { "name": "points",       "kind": "number", "meaning": "The balance of points held." },
-        { "name": "member_since", "kind": "date",   "meaning": "When the membership began." }
-      ]
+        {
+          "name": "tier",
+          "kind": "text",
+          "meaning": "The membership level."
+        },
+        {
+          "name": "points",
+          "kind": "number",
+          "meaning": "The balance of points held."
+        },
+        {
+          "name": "member_since",
+          "kind": "date",
+          "meaning": "When the membership began."
+        }
+      ],
+      "layer": "vaulet"
     }
   ]
 }

@@ -20,6 +20,24 @@ string. That is why the list is public, and why it is a repository rather than
 an endpoint: a vocabulary one vendor controls is one nobody else should build
 on.
 
+## Four layers, in order
+
+A name is resolved by asking, in this order, and the first answer wins:
+
+1. **OpenID Connect Core / SD-JWT VC** — `birthdate`, `given_name`, `email`.
+   Not our vocabulary; this repository cites it and records the kinds so a
+   value can be checked.
+2. **Somebody else's standard** — `org.iso.18013.5.1` (mDL),
+   `eu.europa.ec.eudi.pid.1` (EUDI). Recorded as a pointer, never copied.
+3. **This register** — the few words nobody else has written down, and the
+   aliases for spellings that predate all of it.
+4. **An organisation's own namespace** — `th.co.codefin:loyalty_tier`. Not
+   listed here, and never will be.
+
+**Which layer answered is worth knowing.** A verifier can implement layer 1 and
+2 once and read every issuer in the world; layer 3 works everywhere this
+software runs; layer 4 means something only if you know who issued the card.
+
 ## What is here
 
 | file | what it holds |

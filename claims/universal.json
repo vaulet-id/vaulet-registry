@@ -1,5 +1,6 @@
 {
-  "$comment": "Words that mean the same thing in every industry. Spellings follow OpenID Connect Core 5.1 wherever it has the claim: inventing a second name for birthdate is how two issuers end up unreadable to each other while both being right. Aliases record a spelling that already exists in the wild and what it means, because credentials already issued carry the old key and no later decision can change that.",
+  "$comment": "Layer 1 of four (ADR 0046): what OpenID Connect Core and SD-JWT VC already spell. Not our vocabulary \u2014 a citation and the kinds this software needs to check a value against. Inventing a second name for birthdate is how two issuers end up unreadable to each other while both being right.",
+  "layer": "oidc",
   "source": "https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims",
   "claims": [
     {
