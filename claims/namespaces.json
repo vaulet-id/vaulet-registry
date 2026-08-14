@@ -1,18 +1,278 @@
 {
-  "$comment": "Layers 2 and 3 of four (ADR 0046). A `standard` namespace is somebody else's vocabulary and is recorded as a pointer, never copied: a copy goes stale without anybody noticing. A `vaulet` namespace is one nobody else has written down, and only there do we write name, kind and meaning ourselves. Layer 4 is an organisation's own namespace and is not listed here at all.",
+  "$comment": "Layers 2 and 3 of four (ADR 0046). A `standard` namespace is somebody else's vocabulary. Its words are listed here so a console can offer them, and they are NOT authoritative: `defined_by` is, and where the two disagree the standard wins. This is why a pointer's words are never enforced \u2014 a name absent from this copy is accepted, because the copy being short of the standard is the likely reading, not the issuer being wrong. A `vaulet` namespace is one nobody else has written down, and only there are we the authority. Layer 4 is an organisation's own namespace and is not listed here at all.",
   "namespaces": [
     {
       "namespace": "org.iso.18013.5.1",
       "kind": "pointer",
       "defined_by": "ISO/IEC 18013-5:2021 \u2014 mobile driving licence",
-      "note": "Country and issuer extensions append a code, e.g. org.iso.18013.5.1.US. Includes family_name, given_name, birth_date, document_number, issuing_country, portrait, sex.",
-      "layer": "standard"
+      "layer": "standard",
+      "authoritative": false,
+      "source": "https://www.iso.org/standard/69084.html",
+      "extensions": "A country or issuer extension appends a code: org.iso.18013.5.1.US.",
+      "claims": [
+        {
+          "name": "family_name",
+          "kind": "text"
+        },
+        {
+          "name": "given_name",
+          "kind": "text"
+        },
+        {
+          "name": "birth_date",
+          "kind": "date"
+        },
+        {
+          "name": "issue_date",
+          "kind": "date"
+        },
+        {
+          "name": "expiry_date",
+          "kind": "date"
+        },
+        {
+          "name": "issuing_country",
+          "kind": "text",
+          "meaning": "Alpha-2 country code of the issuer."
+        },
+        {
+          "name": "issuing_authority",
+          "kind": "text"
+        },
+        {
+          "name": "document_number",
+          "kind": "text"
+        },
+        {
+          "name": "portrait",
+          "kind": "image",
+          "meaning": "A facial image of the holder, JPEG or JPEG2000."
+        },
+        {
+          "name": "driving_privileges",
+          "kind": "text",
+          "meaning": "The categories of vehicle, with their dates."
+        },
+        {
+          "name": "un_distinguishing_sign",
+          "kind": "text"
+        },
+        {
+          "name": "administrative_number",
+          "kind": "text"
+        },
+        {
+          "name": "sex",
+          "kind": "number",
+          "meaning": "ISO/IEC 5218: 0 unknown, 1 male, 2 female, 9 not applicable."
+        },
+        {
+          "name": "height",
+          "kind": "number",
+          "meaning": "Centimetres."
+        },
+        {
+          "name": "weight",
+          "kind": "number",
+          "meaning": "Kilograms."
+        },
+        {
+          "name": "eye_colour",
+          "kind": "text"
+        },
+        {
+          "name": "hair_colour",
+          "kind": "text"
+        },
+        {
+          "name": "birth_place",
+          "kind": "text"
+        },
+        {
+          "name": "resident_address",
+          "kind": "text"
+        },
+        {
+          "name": "portrait_capture_date",
+          "kind": "datetime"
+        },
+        {
+          "name": "age_in_years",
+          "kind": "number"
+        },
+        {
+          "name": "age_birth_year",
+          "kind": "number"
+        },
+        {
+          "name": "age_over_18",
+          "kind": "boolean",
+          "meaning": "One of the age_over_NN family; NN is any age the issuer chose to attest."
+        },
+        {
+          "name": "issuing_jurisdiction",
+          "kind": "text"
+        },
+        {
+          "name": "nationality",
+          "kind": "text"
+        },
+        {
+          "name": "resident_city",
+          "kind": "text"
+        },
+        {
+          "name": "resident_state",
+          "kind": "text"
+        },
+        {
+          "name": "resident_postal_code",
+          "kind": "text"
+        },
+        {
+          "name": "resident_country",
+          "kind": "text"
+        },
+        {
+          "name": "family_name_national_character",
+          "kind": "text"
+        },
+        {
+          "name": "given_name_national_character",
+          "kind": "text"
+        },
+        {
+          "name": "signature_usual_mark",
+          "kind": "image"
+        }
+      ]
     },
     {
       "namespace": "eu.europa.ec.eudi.pid.1",
       "kind": "pointer",
       "defined_by": "EU Digital Identity Wallet Architecture and Reference Framework \u2014 person identification data",
-      "layer": "standard"
+      "layer": "standard",
+      "authoritative": false,
+      "source": "https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework",
+      "claims": [
+        {
+          "name": "family_name",
+          "kind": "text"
+        },
+        {
+          "name": "given_name",
+          "kind": "text"
+        },
+        {
+          "name": "birth_date",
+          "kind": "date"
+        },
+        {
+          "name": "birth_place",
+          "kind": "text"
+        },
+        {
+          "name": "nationality",
+          "kind": "text"
+        },
+        {
+          "name": "resident_address",
+          "kind": "text"
+        },
+        {
+          "name": "resident_country",
+          "kind": "text"
+        },
+        {
+          "name": "resident_state",
+          "kind": "text"
+        },
+        {
+          "name": "resident_city",
+          "kind": "text"
+        },
+        {
+          "name": "resident_postal_code",
+          "kind": "text"
+        },
+        {
+          "name": "resident_street",
+          "kind": "text"
+        },
+        {
+          "name": "resident_house_number",
+          "kind": "text"
+        },
+        {
+          "name": "personal_administrative_number",
+          "kind": "text"
+        },
+        {
+          "name": "portrait",
+          "kind": "image"
+        },
+        {
+          "name": "family_name_birth",
+          "kind": "text"
+        },
+        {
+          "name": "given_name_birth",
+          "kind": "text"
+        },
+        {
+          "name": "sex",
+          "kind": "number",
+          "meaning": "ISO/IEC 5218, as in the mDL."
+        },
+        {
+          "name": "email_address",
+          "kind": "text"
+        },
+        {
+          "name": "mobile_phone_number",
+          "kind": "text"
+        },
+        {
+          "name": "expiry_date",
+          "kind": "date"
+        },
+        {
+          "name": "issuance_date",
+          "kind": "date"
+        },
+        {
+          "name": "issuing_authority",
+          "kind": "text"
+        },
+        {
+          "name": "issuing_country",
+          "kind": "text"
+        },
+        {
+          "name": "document_number",
+          "kind": "text"
+        },
+        {
+          "name": "age_over_18",
+          "kind": "boolean"
+        },
+        {
+          "name": "age_in_years",
+          "kind": "number"
+        },
+        {
+          "name": "age_birth_year",
+          "kind": "number"
+        },
+        {
+          "name": "trust_anchor",
+          "kind": "text"
+        },
+        {
+          "name": "location_status",
+          "kind": "text"
+        }
+      ]
     },
     {
       "namespace": "loyalty",
@@ -35,7 +295,8 @@
           "meaning": "When the membership began."
         }
       ],
-      "layer": "vaulet"
+      "layer": "vaulet",
+      "authoritative": true
     }
   ]
 }

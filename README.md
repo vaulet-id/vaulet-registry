@@ -34,6 +34,12 @@ A name is resolved by asking, in this order, and the first answer wins:
 4. **An organisation's own namespace** — `th.co.codefin:loyalty_tier`. Not
    listed here, and never will be.
 
+**Layers 1 to 3 all carry their words here**, so a console can offer them.
+Layers 1 and 2 are copies and say so — `authoritative: false`, with a `source`.
+Where a copy and the standard disagree, the standard wins, which is why a
+namespace recorded as a pointer accepts a word this file does not list: a copy
+running behind is far likelier than an issuer being wrong.
+
 **Which layer answered is worth knowing.** A verifier can implement layer 1 and
 2 once and read every issuer in the world; layer 3 works everywhere this
 software runs; layer 4 means something only if you know who issued the card.
