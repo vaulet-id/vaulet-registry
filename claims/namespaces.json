@@ -297,6 +297,276 @@
       ],
       "layer": "vaulet",
       "authoritative": true
+    },
+    {
+      "namespace": "membership",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "A membership held with one organisation.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "number",
+          "kind": "text",
+          "meaning": "The number the organisation knows this membership by."
+        },
+        {
+          "name": "status",
+          "kind": "text",
+          "meaning": "Whether it is active, suspended or lapsed."
+        },
+        {
+          "name": "expires_at",
+          "kind": "date",
+          "meaning": "When the membership lapses, which is not when the credential expires."
+        },
+        {
+          "name": "holder_name",
+          "kind": "text",
+          "meaning": "The name on the membership, when it differs from the holder's own."
+        }
+      ]
+    },
+    {
+      "namespace": "ticket",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "Admission to one event, at one time.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "event_name",
+          "kind": "text",
+          "meaning": "What is being admitted to."
+        },
+        {
+          "name": "event_start",
+          "kind": "datetime",
+          "meaning": "When it begins, in the venue's own time."
+        },
+        {
+          "name": "venue",
+          "kind": "text",
+          "meaning": "Where it is."
+        },
+        {
+          "name": "seat",
+          "kind": "text",
+          "meaning": "The seat, as printed."
+        },
+        {
+          "name": "section",
+          "kind": "text",
+          "meaning": "The part of the venue the seat is in."
+        },
+        {
+          "name": "row",
+          "kind": "text",
+          "meaning": "The row within the section."
+        },
+        {
+          "name": "admits",
+          "kind": "number",
+          "meaning": "How many people this admits."
+        },
+        {
+          "name": "order_number",
+          "kind": "text",
+          "meaning": "What the seller knows the purchase by."
+        },
+        {
+          "name": "barcode_value",
+          "kind": "text",
+          "meaning": "What a scanner at the door reads, when the door predates any of this."
+        }
+      ]
+    },
+    {
+      "namespace": "employment",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "Somebody's employment by an organisation.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "employer_name",
+          "kind": "text",
+          "meaning": "Who employs them."
+        },
+        {
+          "name": "job_title",
+          "kind": "text",
+          "meaning": "What they are called."
+        },
+        {
+          "name": "department",
+          "kind": "text",
+          "meaning": "Which part of the organisation."
+        },
+        {
+          "name": "employee_number",
+          "kind": "text",
+          "meaning": "What the employer knows them by."
+        },
+        {
+          "name": "started_on",
+          "kind": "date",
+          "meaning": "When the employment began."
+        },
+        {
+          "name": "ended_on",
+          "kind": "date",
+          "meaning": "When it ended, absent while it has not."
+        },
+        {
+          "name": "employment_type",
+          "kind": "text",
+          "meaning": "Full time, part time, contract."
+        }
+      ]
+    },
+    {
+      "namespace": "education",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "A course of study and what it awarded.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "institution_name",
+          "kind": "text",
+          "meaning": "Who taught it."
+        },
+        {
+          "name": "programme",
+          "kind": "text",
+          "meaning": "The course of study."
+        },
+        {
+          "name": "award",
+          "kind": "text",
+          "meaning": "What was awarded \u2014 a degree, a certificate, a licence."
+        },
+        {
+          "name": "field_of_study",
+          "kind": "text",
+          "meaning": "The subject."
+        },
+        {
+          "name": "awarded_on",
+          "kind": "date",
+          "meaning": "When it was awarded."
+        },
+        {
+          "name": "grade",
+          "kind": "text",
+          "meaning": "The result, in whatever the institution grades in."
+        },
+        {
+          "name": "student_number",
+          "kind": "text",
+          "meaning": "What the institution knows them by."
+        }
+      ]
+    },
+    {
+      "namespace": "health",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "Facts a clinician or an insurer needs, not a medical record.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "insurer_name",
+          "kind": "text",
+          "meaning": "Who covers them."
+        },
+        {
+          "name": "policy_number",
+          "kind": "text",
+          "meaning": "What the insurer knows the cover by."
+        },
+        {
+          "name": "blood_type",
+          "kind": "text",
+          "meaning": "ABO and Rh, e.g. O+."
+        },
+        {
+          "name": "allergy",
+          "kind": "text",
+          "meaning": "One allergy. A credential carrying several repeats the claim."
+        },
+        {
+          "name": "emergency_contact_name",
+          "kind": "text",
+          "meaning": "Who to call."
+        },
+        {
+          "name": "emergency_contact_phone",
+          "kind": "text",
+          "meaning": "The number to call, in E.164."
+        }
+      ]
+    },
+    {
+      "namespace": "access",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "Permission to be somewhere or to do something.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "role",
+          "kind": "text",
+          "meaning": "What the holder is allowed to be."
+        },
+        {
+          "name": "site",
+          "kind": "text",
+          "meaning": "Which place the permission is for."
+        },
+        {
+          "name": "clearance_level",
+          "kind": "text",
+          "meaning": "How far in, in the operator's own scale."
+        },
+        {
+          "name": "gate",
+          "kind": "text",
+          "meaning": "The specific door, lane or barrier, when it is one."
+        }
+      ]
+    },
+    {
+      "namespace": "vehicle",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "One vehicle. Not the licence to drive it, which is the mDL.",
+      "$comment": "Written here because nobody else has. If a standard appears for it, this becomes a pointer and these names become aliases \u2014 which is the whole reason aliases exist.",
+      "claims": [
+        {
+          "name": "plate_number",
+          "kind": "text",
+          "meaning": "The registration plate."
+        },
+        {
+          "name": "make",
+          "kind": "text",
+          "meaning": "Who built it."
+        },
+        {
+          "name": "model",
+          "kind": "text",
+          "meaning": "What they call it."
+        }
+      ]
     }
   ]
 }
