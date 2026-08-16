@@ -817,6 +817,11 @@
           "name": "honorific_suffix",
           "kind": "text",
           "meaning": "What comes after it: Jr, III, PhD."
+        },
+        {
+          "name": "other_names",
+          "kind": "text",
+          "meaning": "Names the document lists besides the primary one \u2014 DG11's other names."
         }
       ]
     },
@@ -1019,6 +1024,16 @@
           "name": "national_id",
           "kind": "text",
           "meaning": "The personal number some states carry in the MRZ's optional data."
+        },
+        {
+          "name": "dg2",
+          "kind": "text",
+          "meaning": "The chip's DG2 group, base64. The portrait as the document itself holds it, kept beside the picture because a face check compares against what was read rather than against what was drawn."
+        },
+        {
+          "name": "portrait_hash",
+          "kind": "text",
+          "meaning": "A hash of that portrait, so a later check can be shown to have been about this document's photograph without carrying it again."
         }
       ]
     },
@@ -1079,6 +1094,26 @@
           "name": "capture",
           "kind": "text",
           "meaning": "What was captured and how, as the capture layer recorded it."
+        }
+      ]
+    },
+    {
+      "namespace": "credential",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "What a credential says about itself, rather than about its holder.",
+      "$comment": "Separate from every other namespace here because the subject is different: `name` and `birthdate` are about a person, and these are about the document in their wallet. Mixing them means a card whose layout draws 'everything the holder is' quietly draws plumbing. The registered JWT fields \u2014 iss, exp, cnf, status \u2014 are the standard's version of this and are refused as attributes; these are the ones no standard spells.",
+      "claims": [
+        {
+          "name": "implements",
+          "kind": "text",
+          "meaning": "The contract this credential satisfies, so a reader can accept a shape it was not told about by name."
+        },
+        {
+          "name": "evidence",
+          "kind": "text",
+          "meaning": "What was checked before it was issued \u2014 the assessment behind it, which ADR 0012's assessed_by names the assessor of."
         }
       ]
     }
