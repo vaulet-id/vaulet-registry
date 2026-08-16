@@ -20,6 +20,38 @@ string. That is why the list is public, and why it is a repository rather than
 an endpoint: a vocabulary one vendor controls is one nobody else should build
 on.
 
+## Versions
+
+Tagged, and the number means something (ADR 0047):
+
+| | |
+| --- | --- |
+| **major** | a word's meaning changes, or one is withdrawn |
+| **minor** | words are added |
+| **patch** | wording of a meaning, a source, a comment |
+
+Consumers pin a tag. A deployment can then say which vocabulary it was
+enforcing when it signed something, which is the one question a register is
+asked when there is a dispute — and the difference between "new words" and "a
+word means something else now" is legible without reading a diff.
+
+**Nothing is deleted.** A word that was wrong is deprecated with a
+`superseded_by`: credentials carrying it cannot be recalled.
+
+## What gets a word in
+
+One of two things, and neither is taste:
+
+- **a citation to a published standard** — it enters as a pointer, or as a
+  definition spelled to match, and the citation is recorded in the entry
+- **two independent issuers who would use it** — different organisations, not
+  two products of one. A word only one party writes belongs in that party's own
+  namespace, where it costs nobody anything
+
+Who decides is this repository's owner, today. Saying so is better than
+implying a process that does not exist; the bar above is what makes a refusal
+about the word rather than about the person.
+
 ## Four layers, in order
 
 A name is resolved by asking, in this order, and the first answer wins:
