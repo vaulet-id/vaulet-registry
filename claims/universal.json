@@ -1,5 +1,5 @@
 {
-  "$comment": "Layer 1 of four (ADR 0046): what OpenID Connect Core and SD-JWT VC already spell. Not our vocabulary \u2014 a citation and the kinds this software needs to check a value against. Inventing a second name for birthdate is how two issuers end up unreadable to each other while both being right. The address members are the ones OIDC defines inside its address object, written as paths because a credential holds them apart (ADR 0031).",
+  "$comment": "Layer 1 of four (ADR 0046): what OpenID Connect Core and SD-JWT VC already spell. Not our vocabulary \u2014 a citation and the kinds this software needs to check a value against. Inventing a second name for birthdate is how two issuers end up unreadable to each other while both being right. The address members are the ones OIDC defines inside its address object, written as paths because a credential holds them apart (ADR 0031). A `legacy` word is a spelling that predates the register; it carries same_as and nothing else, and exists so credentials already issued still resolve.",
   "layer": "oidc",
   "source": "https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims",
   "claims": [
@@ -133,33 +133,31 @@
       "kind": "text",
       "meaning": "Country name or code.",
       "of": "address"
-    }
-  ],
-  "aliases": [
-    {
-      "from": "phone",
-      "to": "phone_number",
-      "why": "Vaulet's original spelling; OIDC Core says phone_number."
     },
     {
-      "from": "date_of_birth",
-      "to": "birthdate",
-      "why": "Vaulet's original spelling; OIDC Core says birthdate."
+      "name": "phone",
+      "legacy": true,
+      "same_as": "phone_number"
     },
     {
-      "from": "full_name",
-      "to": "name",
-      "why": "Vaulet's original spelling; OIDC Core's name is the full name."
+      "name": "date_of_birth",
+      "legacy": true,
+      "same_as": "birthdate"
     },
     {
-      "from": "sex",
-      "to": "org.iso.18013.5.1:sex",
-      "why": "The MRZ field, not the stated gender \u2014 it belongs to the document vocabulary."
+      "name": "full_name",
+      "legacy": true,
+      "same_as": "name"
     },
     {
-      "from": "nationality",
-      "to": "eu.europa.ec.eudi.pid.1:nationality",
-      "$comment": "It was listed as universal under a citation to OpenID Connect Core, which does not define it. It is the PID's and the mDL's word."
+      "name": "sex",
+      "legacy": true,
+      "same_as": "org.iso.18013.5.1:sex"
+    },
+    {
+      "name": "nationality",
+      "legacy": true,
+      "same_as": "org.iso.18013.5.1:nationality"
     }
   ]
 }

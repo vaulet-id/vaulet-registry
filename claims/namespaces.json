@@ -1,5 +1,5 @@
 {
-  "$comment": "Layers 2 and 3 of four (ADR 0046). A `standard` namespace is somebody else's vocabulary. Its words are listed here so a console can offer them, and they are NOT authoritative: `defined_by` is, and where the two disagree the standard wins. This is why a pointer's words are never enforced \u2014 a name absent from this copy is accepted, because the copy being short of the standard is the likely reading, not the issuer being wrong. A `vaulet` namespace is one nobody else has written down, and only there are we the authority. Layer 4 is an organisation's own namespace and is not listed here at all.",
+  "$comment": "Layers 2 and 3 of four (ADR 0046). A `standard` namespace is somebody else's vocabulary. Its words are listed here so a console can offer them, and they are NOT authoritative: `defined_by` is, and where the two disagree the standard wins. This is why a pointer's words are never enforced \u2014 a name absent from this copy is accepted, because the copy being short of the standard is the likely reading, not the issuer being wrong. A `vaulet` namespace is one nobody else has written down, and only there are we the authority. Layer 4 is an organisation's own namespace and is not listed here at all. `same_as` names the spelling a verifier is likeliest to already read. It points outward, never inward: a register that made the world's words aliases of its own would be readable only by software that had heard of us, which is the one thing a shared vocabulary is for. The five organisation-name words \u2014 institution_name in education and finance, employer_name, insurer_name, provider_name \u2014 are deliberately NOT merged: one organisation_name on a staff pass and a gym membership reads the same and says nothing about which is which, and the namespace is what tells them apart.",
   "namespaces": [
     {
       "namespace": "org.iso.18013.5.1",
@@ -12,15 +12,18 @@
       "claims": [
         {
           "name": "family_name",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "family_name"
         },
         {
           "name": "given_name",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "given_name"
         },
         {
           "name": "birth_date",
-          "kind": "date"
+          "kind": "date",
+          "same_as": "birthdate"
         },
         {
           "name": "issue_date",
@@ -46,7 +49,8 @@
         {
           "name": "portrait",
           "kind": "image",
-          "meaning": "A facial image of the holder, JPEG or JPEG2000."
+          "meaning": "A facial image of the holder, JPEG or JPEG2000.",
+          "same_as": "picture"
         },
         {
           "name": "driving_privileges",
@@ -90,7 +94,8 @@
         },
         {
           "name": "resident_address",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.formatted"
         },
         {
           "name": "portrait_capture_date",
@@ -119,19 +124,23 @@
         },
         {
           "name": "resident_city",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.locality"
         },
         {
           "name": "resident_state",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.region"
         },
         {
           "name": "resident_postal_code",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.postal_code"
         },
         {
           "name": "resident_country",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.country"
         },
         {
           "name": "family_name_national_character",
@@ -157,43 +166,53 @@
       "claims": [
         {
           "name": "family_name",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "family_name"
         },
         {
           "name": "given_name",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "given_name"
         },
         {
           "name": "birth_date",
-          "kind": "date"
+          "kind": "date",
+          "same_as": "birthdate"
         },
         {
           "name": "birth_place",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "org.iso.18013.5.1:birth_place"
         },
         {
           "name": "nationality",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "org.iso.18013.5.1:nationality"
         },
         {
           "name": "resident_address",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.formatted"
         },
         {
           "name": "resident_country",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.country"
         },
         {
           "name": "resident_state",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.region"
         },
         {
           "name": "resident_city",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.locality"
         },
         {
           "name": "resident_postal_code",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "address.postal_code"
         },
         {
           "name": "resident_street",
@@ -209,7 +228,8 @@
         },
         {
           "name": "portrait",
-          "kind": "image"
+          "kind": "image",
+          "same_as": "picture"
         },
         {
           "name": "family_name_birth",
@@ -222,47 +242,58 @@
         {
           "name": "sex",
           "kind": "number",
-          "meaning": "ISO/IEC 5218, as in the mDL."
+          "meaning": "ISO/IEC 5218, as in the mDL.",
+          "same_as": "org.iso.18013.5.1:sex"
         },
         {
           "name": "email_address",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "email"
         },
         {
           "name": "mobile_phone_number",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "phone_number"
         },
         {
           "name": "expiry_date",
-          "kind": "date"
+          "kind": "date",
+          "same_as": "org.iso.18013.5.1:expiry_date"
         },
         {
           "name": "issuance_date",
-          "kind": "date"
+          "kind": "date",
+          "same_as": "org.iso.18013.5.1:issue_date"
         },
         {
           "name": "issuing_authority",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "org.iso.18013.5.1:issuing_authority"
         },
         {
           "name": "issuing_country",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "org.iso.18013.5.1:issuing_country"
         },
         {
           "name": "document_number",
-          "kind": "text"
+          "kind": "text",
+          "same_as": "org.iso.18013.5.1:document_number"
         },
         {
           "name": "age_over_18",
-          "kind": "boolean"
+          "kind": "boolean",
+          "same_as": "org.iso.18013.5.1:age_over_18"
         },
         {
           "name": "age_in_years",
-          "kind": "number"
+          "kind": "number",
+          "same_as": "org.iso.18013.5.1:age_in_years"
         },
         {
           "name": "age_birth_year",
-          "kind": "number"
+          "kind": "number",
+          "same_as": "org.iso.18013.5.1:age_birth_year"
         },
         {
           "name": "trust_anchor",
