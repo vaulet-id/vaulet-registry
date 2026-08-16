@@ -767,6 +767,27 @@
           "meaning": "Whether it has been neutered."
         }
       ]
+    },
+    {
+      "namespace": "person",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "Parts of a person's name that no standard for credentials spells.",
+      "$comment": "OpenID Connect Core stops at name, given_name, family_name and middle_name; ISO's mDL and the EUDI PID carry no honorific at all. SCIM (RFC 7643) does \u2014 name.honorificPrefix and name.honorificSuffix \u2014 and it is a user-provisioning schema rather than a claim vocabulary, so it is cited here and not pointed at. The spelling follows it in snake_case, so somebody mapping between the two has nothing to guess.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7643#section-4.1.1",
+      "claims": [
+        {
+          "name": "honorific_prefix",
+          "kind": "text",
+          "meaning": "What comes before the name: Mr, Mrs, Dr, \u0e19\u0e32\u0e22, \u0e19\u0e32\u0e07, \u0e19\u0e32\u0e07\u0e2a\u0e32\u0e27. On a Thai identity card it is part of the printed name, so a credential that drops it does not match the document."
+        },
+        {
+          "name": "honorific_suffix",
+          "kind": "text",
+          "meaning": "What comes after it: Jr, III, PhD."
+        }
+      ]
     }
   ],
   "pending": [
