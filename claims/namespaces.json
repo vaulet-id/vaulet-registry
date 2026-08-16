@@ -1034,6 +1034,11 @@
           "name": "portrait_hash",
           "kind": "text",
           "meaning": "A hash of that portrait, so a later check can be shown to have been about this document's photograph without carrying it again."
+        },
+        {
+          "name": "signature",
+          "kind": "image",
+          "meaning": "The holder's usual mark as the document holds it \u2014 DG7. Not a signature over anything; a picture of one."
         }
       ]
     },
