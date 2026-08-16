@@ -970,6 +970,82 @@
           "meaning": "The spouse's name, which several account-opening forms require beside the holder's own."
         }
       ]
+    },
+    {
+      "namespace": "travel_document",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "What is printed and encoded on a passport or a national identity card.",
+      "$comment": "ISO/IEC 18013-5 spells every one of these and cannot be borrowed: its namespace is scoped to the mobile driving licence, and writing a passport's number under org.iso.18013.5.1 says the holder has a driving licence they may not have. ICAO 9303 defines the document and declares no claim vocabulary, so there is nothing to point at \u2014 the same position as FHIR and the Single Form. Names follow ISO's spelling so a mapping between the two guesses nothing.",
+      "source": "https://www.icao.int/publications/pages/publication.aspx?docnum=9303",
+      "claims": [
+        {
+          "name": "type",
+          "kind": "text",
+          "meaning": "P for a passport, ID for a national identity card \u2014 the MRZ's document code."
+        },
+        {
+          "name": "number",
+          "kind": "text",
+          "meaning": "The document number, as printed."
+        },
+        {
+          "name": "expiry_date",
+          "kind": "date",
+          "meaning": "When the document expires, which is not when a credential made from it does."
+        },
+        {
+          "name": "issue_date",
+          "kind": "date",
+          "meaning": "When it was issued."
+        },
+        {
+          "name": "issuing_country",
+          "kind": "text",
+          "meaning": "Alpha-3 in the MRZ, and recorded as the MRZ has it."
+        },
+        {
+          "name": "issuing_authority",
+          "kind": "text",
+          "meaning": "Who issued it."
+        },
+        {
+          "name": "place_of_birth",
+          "kind": "text",
+          "meaning": "As printed, which is a place name and not an address."
+        },
+        {
+          "name": "national_id",
+          "kind": "text",
+          "meaning": "The personal number some states carry in the MRZ's optional data."
+        }
+      ]
+    },
+    {
+      "namespace": "face_check",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "What a face check concluded, which is not a fact about the person.",
+      "$comment": "Every word here is assessed and none is declared, so a credential carrying one carries assessed_by with it (ADR 0012): a birthdate is wrong only if it was mistyped, and a match score is wrong whenever a different assessor would have scored differently. Transaction-bound (ADR 0010) \u2014 the verdict is about one attempt, not about a face.",
+      "claims": [
+        {
+          "name": "matched",
+          "kind": "boolean",
+          "meaning": "Whether the live face and the document's portrait were judged the same person."
+        },
+        {
+          "name": "score",
+          "kind": "number",
+          "meaning": "How alike, in the assessor's own scale. Comparable only against thresholds from the same assessor."
+        },
+        {
+          "name": "pad_level",
+          "kind": "number",
+          "meaning": "The presentation-attack-detection level the capture met, as iBeta counts levels."
+        }
+      ]
     }
   ],
   "pending": [
