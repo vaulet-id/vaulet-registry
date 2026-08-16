@@ -1044,6 +1044,41 @@
           "name": "pad_level",
           "kind": "number",
           "meaning": "The presentation-attack-detection level the capture met, as iBeta counts levels."
+        },
+        {
+          "name": "pad_decision",
+          "kind": "text",
+          "meaning": "What this capture's presentation-attack check decided. Kept apart from pad_level, which is a property of the deciding system and constant for a model version \u2014 collapsed into one number they produce a claim that cannot be stated honestly (ADR 0011)."
+        },
+        {
+          "name": "source_type",
+          "kind": "text",
+          "meaning": "What the face was compared against: a passport chip's portrait, a document photo."
+        },
+        {
+          "name": "reference_photo_hash",
+          "kind": "text",
+          "meaning": "A hash of the image compared against, so the comparison can be shown to have been about that image without carrying it."
+        },
+        {
+          "name": "parent_form_nonce",
+          "kind": "text",
+          "meaning": "The transaction this check belongs to. A face check is about one attempt, not about a face (ADR 0010)."
+        },
+        {
+          "name": "verified_at",
+          "kind": "number",
+          "meaning": "Seconds since the epoch, when the check ran."
+        },
+        {
+          "name": "verifier",
+          "kind": "text",
+          "meaning": "The DID of whoever ran it \u2014 which is what assessed_by names."
+        },
+        {
+          "name": "capture",
+          "kind": "text",
+          "meaning": "What was captured and how, as the capture layer recorded it."
         }
       ]
     }
