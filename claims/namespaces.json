@@ -788,6 +788,157 @@
           "meaning": "What comes after it: Jr, III, PhD."
         }
       ]
+    },
+    {
+      "namespace": "postal",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "The parts of an address below the town that no vocabulary for credentials spells.",
+      "$comment": "OpenID Connect gives street_address, one free-text line for everything before the town, and DIF's Verified Person address adds extendedAddress and unstructuredAddress \u2014 catch-alls by another name. A Thai address is eight labelled boxes on every form that asks for one (FundConnext Single Form v3.1 asks for four such addresses), and putting them in one string is throwing away the structure the form already had. Written beside address.* rather than replacing it: locality, region, postal_code and country are OIDC's and stay OIDC's.",
+      "source": "https://identity.foundation/credential-schemas/",
+      "claims": [
+        {
+          "name": "moo",
+          "kind": "text",
+          "meaning": "\u0e2b\u0e21\u0e39\u0e48\u0e17\u0e35\u0e48 \u2014 the numbered cluster of houses, outside municipal areas."
+        },
+        {
+          "name": "village",
+          "kind": "text",
+          "meaning": "\u0e2b\u0e21\u0e39\u0e48\u0e1a\u0e49\u0e32\u0e19 or the building's name."
+        },
+        {
+          "name": "building",
+          "kind": "text",
+          "meaning": "\u0e2d\u0e32\u0e04\u0e32\u0e23 \u2014 the block, where the village name is not it."
+        },
+        {
+          "name": "room",
+          "kind": "text",
+          "meaning": "\u0e40\u0e25\u0e02\u0e17\u0e35\u0e48\u0e2b\u0e49\u0e2d\u0e07."
+        },
+        {
+          "name": "floor",
+          "kind": "text",
+          "meaning": "\u0e0a\u0e31\u0e49\u0e19."
+        },
+        {
+          "name": "soi",
+          "kind": "text",
+          "meaning": "\u0e0b\u0e2d\u0e22 \u2014 the lane off the road, numbered or named."
+        },
+        {
+          "name": "road",
+          "kind": "text",
+          "meaning": "\u0e16\u0e19\u0e19."
+        },
+        {
+          "name": "sub_district",
+          "kind": "text",
+          "meaning": "\u0e41\u0e02\u0e27\u0e07 in Bangkok, \u0e15\u0e33\u0e1a\u0e25 elsewhere. Below district, above the street."
+        },
+        {
+          "name": "district",
+          "kind": "text",
+          "meaning": "\u0e40\u0e02\u0e15 in Bangkok, \u0e2d\u0e33\u0e40\u0e20\u0e2d elsewhere. Above sub_district, below province, which is address.region."
+        },
+        {
+          "name": "address_type",
+          "kind": "text",
+          "meaning": "Which address this is: identity_document, current, workplace, mailing. A form asks for several and they differ; without this they are one address repeated. Follows DIF's address[].type."
+        }
+      ]
+    },
+    {
+      "namespace": "income",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "What somebody earns and holds, as the forms that ask actually ask it.",
+      "$comment": "Nobody has written these down: SEC's rules speak in assurance levels rather than field names, NDID leaves the shape of an AS's answer to agreement per service_id, and DIF's Verified Person stops at identity. The words come from the FundConnext Single Form, which is the form every Thai asset manager uses.",
+      "claims": [
+        {
+          "name": "monthly_income_band",
+          "kind": "text",
+          "meaning": "The band, not the number \u2014 '30,001-50,000'. The form asks in bands, and storing the figure to render a band back is disclosing more than was asked."
+        },
+        {
+          "name": "asset_value",
+          "kind": "number",
+          "meaning": "Deposits, securities held directly, and net assets. Not the home lived in."
+        },
+        {
+          "name": "source_of_funds",
+          "kind": "text",
+          "meaning": "Salary, savings, retirement fund, inheritance, investment, own business. One per claim; several repeat it."
+        },
+        {
+          "name": "income_country",
+          "kind": "text",
+          "meaning": "Where the money is earned, which is not where the person lives."
+        },
+        {
+          "name": "occupation",
+          "kind": "text",
+          "meaning": "What they do, from the list the form offers."
+        },
+        {
+          "name": "business_type",
+          "kind": "text",
+          "meaning": "The trade, asked only of the self-employed and of business owners \u2014 and asked because some of them carry money-laundering risk, not out of curiosity."
+        }
+      ]
+    },
+    {
+      "namespace": "investor",
+      "kind": "definition",
+      "layer": "vaulet",
+      "authoritative": true,
+      "meaning": "What an intermediary concluded about somebody, and what they declared.",
+      "$comment": "Two kinds of thing in one namespace on purpose: `objective`, `marital_status` and `spouse_name` are what the person said, while `risk_profile`, `experience` and `time_horizon` are a score somebody computed from ten questions, and `pep` is a check somebody ran. The second kind must carry assessed_by (ADR 0012): birthdate is wrong only if it was mistyped, and a risk profile is wrong whenever a different assessor would have concluded differently.",
+      "claims": [
+        {
+          "name": "objective",
+          "kind": "text",
+          "meaning": "Why they are investing: investment, retirement, tax benefit."
+        },
+        {
+          "name": "risk_profile",
+          "kind": "text",
+          "meaning": "The suitability result. Assessed, never declared \u2014 assessed_by says whose."
+        },
+        {
+          "name": "experience",
+          "kind": "text",
+          "meaning": "How much investing they have done, in the assessor's own scale."
+        },
+        {
+          "name": "time_horizon",
+          "kind": "text",
+          "meaning": "How long the money can be left, in the assessor's own scale."
+        },
+        {
+          "name": "pep",
+          "kind": "boolean",
+          "meaning": "Whether they are a politically exposed person, or close to one. A check somebody ran, not a fact somebody stated."
+        },
+        {
+          "name": "pep_position",
+          "kind": "text",
+          "meaning": "The office held, when pep is true."
+        },
+        {
+          "name": "marital_status",
+          "kind": "text",
+          "meaning": "Single or married, as the form asks it."
+        },
+        {
+          "name": "spouse_name",
+          "kind": "text",
+          "meaning": "The spouse's name, which several account-opening forms require beside the holder's own."
+        }
+      ]
     }
   ],
   "pending": [
@@ -795,6 +946,21 @@
       "expected": "European Health Insurance Card, as an EUDI attestation",
       "$comment": "No namespace identifier is recorded because none is published: annex 3 of the ARF carries rulebooks for PID and the mDL, and the mDL's namespace is ISO's, not the EU's. Writing eu.europa.ec.eudi.ehic.1 here would be inventing a standard's name, which is the one thing this file exists to stop. Listed so a console can warn that cover is likely to get a reserved word later, and so nobody adds one from memory.",
       "watch": "https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/tree/main/docs/annexes/annex-3"
+    },
+    {
+      "expected": "DIF Credential Schemas \u2014 Verified Person",
+      "$comment": "A ratified DIF specification (October 2025) covering the identity half of every KYC form: name with honorificPrefix, address with a type, identificationEvidence, contactPoint. It cannot be pointed at because it establishes no namespace identifier of its own \u2014 it borrows from Schema.org, OpenID Connect and EBSI \u2014 and it is camelCase objects where SD-JWT here is flat snake_case. Recorded so the spellings stay convertible and so nobody writes a second word for honorific_prefix.",
+      "watch": "https://identity.foundation/credential-schemas/"
+    },
+    {
+      "expected": "FundConnext Single Form, for opening a mutual fund account in Thailand",
+      "$comment": "Prepared by the Stock Exchange of Thailand with the support of the SEC and AIMC, version 3.1 dated 1 June 2022. It is a PDF form and declares no vocabulary, so the words in `income` and `investor` are ours and its field labels are only where they were found. If a machine-readable version is ever published, those become aliases.",
+      "watch": "https://www.set.or.th/"
+    },
+    {
+      "expected": "NDID, for the KYC data one Thai financial institution passes another",
+      "$comment": "The platform the SEC connected the capital market to. Its own developer documentation leaves the shape of an Authoritative Source's answer to agreement per service_id rather than publishing a vocabulary, so there is nothing to point at \u2014 the exchange is standardised and the field names are not.",
+      "watch": "https://ndidplatform.github.io/docs/technical-overview"
     }
   ]
 }
